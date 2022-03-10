@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\EventMasterController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,6 +14,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'EventMasterController@index');
+
+Route::resource('event_master','EventMasterController');
+Route::get('delete_event/{id}', 'EventMasterController@destroy');
